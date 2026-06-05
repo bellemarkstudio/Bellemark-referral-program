@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Referral Partner Program — Bellemark Systems</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @media print {
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    .hero, .commission, .section, .cta-band, .footer { page-break-inside: avoid; break-inside: avoid; }
+  }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #ffffff;
+    color: #1a1a2e;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: #0f1923;
+    padding: 48px 60px 52px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: #38bdf8;
+  }
+  .hero-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+  .brand {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: #ffffff;
+  }
+  .badge {
+    background: transparent;
+    border: 1.5px solid #38bdf8;
+    color: #38bdf8;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 8px 18px;
+    border-radius: 4px;
+  }
+  .hero h1 {
+    font-size: 56px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+  .hero h1 span { color: #38bdf8; }
+  .hero p {
+    font-size: 16px;
+    color: rgba(255,255,255,0.55);
+    max-width: 520px;
+    line-height: 1.6;
+  }
+
+  /* ── COMMISSION BAND ── */
+  .commission {
+    background: #162030;
+    padding: 40px 60px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    border-top: 1px solid rgba(56,189,248,0.15);
+    border-bottom: 1px solid rgba(56,189,248,0.15);
+  }
+  .commission-pct {
+    font-size: 72px;
+    font-weight: 900;
+    color: #38bdf8;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .commission-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.4;
+    margin-top: 4px;
+  }
+  .commission-divider {
+    width: 1px;
+    height: 70px;
+    background: rgba(56,189,248,0.2);
+    flex-shrink: 0;
+  }
+  .commission-desc {
+    font-size: 15px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.7;
+    max-width: 560px;
+  }
+  .commission-desc strong { color: #ffffff; }
+
+  /* ── CONTENT SECTIONS ── */
+  .section {
+    padding: 52px 60px;
+    border-bottom: 1px solid #e8ecf0;
+  }
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #38bdf8;
+    margin-bottom: 12px;
+  }
+  .section h2 {
+    font-size: 26px;
+    font-weight: 800;
+    color: #0f1923;
+    margin-bottom: 32px;
+  }
+
+  /* ── SERVICE CARDS ── */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .card {
+    border: 1px solid #dde3ea;
+    border-radius: 8px;
+    padding: 24px;
+  }
+  .card-num {
+    font-size: 11px;
+    font-weight: 700;
+    color: #38bdf8;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+  .card h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f1923;
+    margin-bottom: 8px;
+  }
+  .card p {
+    font-size: 13px;
+    color: #6b7280;
+    line-height: 1.6;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+    margin-top: 8px;
+  }
+  .steps::before {
+    content: '';
+    position: absolute;
+    top: 22px;
+    left: 12.5%;
+    right: 12.5%;
+    height: 1px;
+    background: #dde3ea;
+  }
+  .step { text-align: center; padding: 0 16px; }
+  .step-num {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1.5px solid #38bdf8;
+    color: #38bdf8;
+    font-size: 15px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    background: #ffffff;
+    position: relative;
+    z-index: 1;
+  }
+  .step h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0f1923;
+    margin-bottom: 8px;
+  }
+  .step p { font-size: 12px; color: #6b7280; line-height: 1.6; }
+
+  /* ── WHO TO REFER ── */
+  .who-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  .who-pill {
+    border: 1px solid #dde3ea;
+    border-radius: 6px;
+    padding: 14px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .who-pill::before {
+    content: '•';
+    color: #38bdf8;
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  /* ── EARNINGS EXAMPLE ── */
+  .earnings-box {
+    background: #f0f7ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 10px;
+    padding: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    text-align: center;
+  }
+  .earn-col { flex: 1; }
+  .earn-val {
+    font-size: 42px;
+    font-weight: 900;
+    color: #38bdf8;
+    line-height: 1;
+  }
+  .earn-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #94a3b8;
+    margin-top: 6px;
+  }
+  .earn-op {
+    font-size: 28px;
+    color: #cbd5e1;
+    font-weight: 300;
+    padding: 0 12px;
+    flex-shrink: 0;
+  }
+
+  /* ── CTA BAND ── */
+  .cta-band {
+    background: #0f1923;
+    padding: 36px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+  }
+  .cta-band p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+    max-width: 560px;
+  }
+  .cta-band strong { color: #ffffff; }
+  .cta-contact { text-align: right; flex-shrink: 0; }
+  .cta-contact .name { font-size: 16px; font-weight: 700; color: #ffffff; }
+  .cta-contact .company { font-size: 13px; color: #38bdf8; margin-top: 2px; }
+  .cta-contact .email { font-size: 13px; color: rgba(255,255,255,0.45); margin-top: 2px; }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: #0f1923;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-brand {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.3);
+  }
+  .footer-notes {
+    font-size: 12px;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 1px;
+  }
+
+  @media (max-width: 768px) {
+    .hero { padding: 32px 20px 40px; }
+    .hero-top { margin-bottom: 28px; flex-wrap: wrap; gap: 10px; }
+    .brand { font-size: 11px; letter-spacing: 3px; }
+    .badge { font-size: 9px; padding: 6px 12px; letter-spacing: 1px; }
+    .hero h1 { font-size: 30px; line-height: 1.15; margin-bottom: 14px; }
+    .hero p { font-size: 14px; }
+
+    .commission { flex-direction: column; gap: 20px; padding: 28px 20px; text-align: center; }
+    .commission-pct { font-size: 56px; }
+    .commission-sub { font-size: 13px; }
+    .commission-divider { width: 48px; height: 1px; margin: 0 auto; }
+    .commission-desc { font-size: 14px; text-align: left; }
+
+    .section { padding: 36px 20px; }
+    .section h2 { font-size: 20px; margin-bottom: 24px; }
+    .section-label { font-size: 10px; }
+
+    .cards { grid-template-columns: 1fr; gap: 12px; }
+    .card { padding: 20px; }
+
+    .steps { grid-template-columns: 1fr 1fr; gap: 24px 12px; }
+    .steps::before { display: none; }
+    .step { padding: 0 8px; }
+    .step h4 { font-size: 13px; }
+
+    .who-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .who-pill { font-size: 13px; padding: 12px 14px; }
+
+    .earnings-box { flex-direction: column; gap: 16px; padding: 28px 20px; }
+    .earn-val { font-size: 36px; }
+    .earn-op { font-size: 20px; padding: 0; }
+    .earn-label { font-size: 10px; }
+
+    .cta-band { flex-direction: column; gap: 24px; padding: 32px 20px; text-align: left; }
+    .cta-band p { font-size: 14px; }
+    .cta-contact { text-align: left; }
+
+    .footer { flex-direction: column; gap: 8px; text-align: center; padding: 16px 20px; }
+    .footer-notes { font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-top">
+    <div class="brand">BELLEMARK SYSTEMS</div>
+    <div class="badge">REFERRAL PARTNER PROGRAM</div>
+  </div>
+  <h1>Refer a client.<br>Get paid <span>twice.</span></h1>
+  <p>We build automated lead capture and response systems for local service businesses. You make one introduction — we handle everything else.</p>
+</section>
+
+<!-- COMMISSION -->
+<div class="commission">
+  <div>
+    <div class="commission-pct">20%</div>
+    <div class="commission-sub">of monthly fee<br>for 2 months</div>
+  </div>
+  <div class="commission-divider"></div>
+  <p class="commission-desc">
+    For every client you refer who signs on, you earn <strong>20% of their monthly subscription</strong> for the first 2 billing months. No selling, no management — just an introduction. <strong>One-time setup fees are excluded.</strong>
+  </p>
+</div>
+
+<!-- WHAT WE BUILD -->
+<section class="section">
+  <div class="section-label">WHAT WE BUILD</div>
+  <h2>Systems that capture leads your clients are already missing.</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="card-num">01</div>
+      <h3>Missed Call Text-Back</h3>
+      <p>Instantly texts anyone who calls and doesn't get an answer — keeps the lead warm.</p>
+    </div>
+    <div class="card">
+      <div class="card-num">02</div>
+      <h3>Website Chat Widget</h3>
+      <p>Qualifies visitors 24/7 and sends the lead with name, number, and service needed.</p>
+    </div>
+    <div class="card">
+      <div class="card-num">03</div>
+      <h3>Smart Receptionist</h3>
+      <p>Handles inbound calls after hours and weekends — captures every inquiry.</p>
+    </div>
+    <div class="card">
+      <div class="card-num">04</div>
+      <h3>Lead Follow-Up System</h3>
+      <p>Automatically follows up with new leads via text and email so nothing goes cold.</p>
+    </div>
+    <div class="card">
+      <div class="card-num">05</div>
+      <h3>Lead Capture Funnels</h3>
+      <p>Landing pages and quote forms that deliver leads directly to the business.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section">
+  <div class="section-label">HOW IT WORKS</div>
+  <h2>Four steps. Zero selling on your end.</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h4>You make the introduction</h4>
+      <p>A quick mention or warm intro is all it takes.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h4>We handle the demo</h4>
+      <p>We reach out, run a live demo, and answer all questions.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h4>They sign on</h4>
+      <p>We close, onboard, and set everything up.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <h4>You get paid</h4>
+      <p>20% of their monthly fee — months 1 and 2.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHO TO REFER -->
+<section class="section">
+  <div class="section-label">WHO TO REFER</div>
+  <h2>Any local service business that takes phone calls.</h2>
+  <div class="who-grid">
+    <div class="who-pill">Roofing Companies</div>
+    <div class="who-pill">HVAC Companies</div>
+    <div class="who-pill">Plumbing Companies</div>
+    <div class="who-pill">Chimney Services</div>
+    <div class="who-pill">Exterior Companies</div>
+    <div class="who-pill">Restaurants</div>
+    <div class="who-pill">Contractors</div>
+    <div class="who-pill">& Other Local Businesses</div>
+  </div>
+</section>
+
+<!-- EARNINGS EXAMPLE -->
+<section class="section">
+  <div class="section-label">EARNINGS EXAMPLE</div>
+  <h2>What one referral is worth.</h2>
+  <div class="earnings-box">
+    <div class="earn-col">
+      <div class="earn-val">$1,000</div>
+      <div class="earn-label">CLIENT MONTHLY FEE</div>
+    </div>
+    <div class="earn-op">×</div>
+    <div class="earn-col">
+      <div class="earn-val">20%</div>
+      <div class="earn-label">YOUR COMMISSION</div>
+    </div>
+    <div class="earn-op">=</div>
+    <div class="earn-col">
+      <div class="earn-val">$400</div>
+      <div class="earn-label">TOTAL EARNED (2 MONTHS)</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <p>Ready to get started? <strong>Reach out and we'll get you set up in under 10 minutes.</strong> No quota, no pressure — refer when it makes sense and get paid when they sign.</p>
+  <div class="cta-contact">
+    <div class="name">Alexander</div>
+    <div class="company">Bellemark Systems</div>
+    <div class="email">bellemarkstudio@gmail.com</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-brand">BELLEMARK SYSTEMS</div>
+  <div class="footer-notes">No contracts · No quotas · Paid within 10 business days</div>
+</div>
+
+</body>
+</html>
